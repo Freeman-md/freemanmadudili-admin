@@ -768,6 +768,50 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    interest: Attribute.String & Attribute.Required;
+    field_of_study: Attribute.String;
+    profile_url: Attribute.String;
+    portfolio_purpose: Attribute.Text;
+    portfolio_description: Attribute.Text;
+    personal_information: Attribute.Text;
+    role: Attribute.String;
+    role_description: Attribute.Text;
+    budget: Attribute.String;
+    collaboration: Attribute.String;
+    collaboration_overview: Attribute.Text;
+    inquiry: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExperienceExperience extends Schema.CollectionType {
   collectionName: 'experiences';
   info: {
@@ -889,6 +933,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::contact.contact': ApiContactContact;
       'api::experience.experience': ApiExperienceExperience;
       'api::project.project': ApiProjectProject;
       'api::tool.tool': ApiToolTool;

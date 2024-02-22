@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "regex": "^\\+?([0-9]{1,3})\\s?([0-9]{1,4})[\\s-]?([0-9]{1,4})[\\s-]?([0-9]{1,4})[\\s-]?([0-9]{1,9})$"
+    },
+    "interest": {
+      "type": "string",
+      "required": true
+    },
+    "field_of_study": {
+      "type": "string"
+    },
+    "profile_url": {
+      "type": "string"
+    },
+    "portfolio_purpose": {
+      "type": "text"
+    },
+    "portfolio_description": {
+      "type": "text"
+    },
+    "personal_information": {
+      "type": "text"
+    },
+    "role": {
+      "type": "string"
+    },
+    "role_description": {
+      "type": "text"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "collaboration": {
+      "type": "string"
+    },
+    "collaboration_overview": {
+      "type": "text"
+    },
+    "inquiry": {
+      "type": "string"
+    }
+  }
+}
