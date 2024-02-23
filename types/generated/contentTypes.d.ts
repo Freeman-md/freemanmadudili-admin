@@ -790,6 +790,8 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
     hero_image: Attribute.Media;
     personal_photo: Attribute.Media;
     socials: Attribute.JSON;
+    hero_intro: Attribute.RichText & Attribute.Required;
+    contact_me_text: Attribute.RichText & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

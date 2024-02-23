@@ -66,6 +66,14 @@
     },
     "socials": {
       "type": "json"
+    },
+    "hero_intro": {
+      "type": "richtext",
+      "required": true
+    },
+    "contact_me_text": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
