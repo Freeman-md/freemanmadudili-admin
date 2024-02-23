@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "app_configs",
+  "info": {
+    "singularName": "app-config",
+    "pluralName": "app-configs",
+    "displayName": "AppConfig",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "professional_name": {
+      "type": "string",
+      "required": true
+    },
+    "professional_email": {
+      "type": "email",
+      "required": true
+    },
+    "professional_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "hero_headline": {
+      "type": "string",
+      "required": true
+    },
+    "about_me_intro": {
+      "type": "string",
+      "required": true
+    },
+    "about_me": {
+      "type": "richtext",
+      "required": true
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "personal_photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "socials": {
+      "type": "json"
+    }
+  }
+}

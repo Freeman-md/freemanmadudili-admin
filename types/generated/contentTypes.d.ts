@@ -768,6 +768,46 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAppConfigAppConfig extends Schema.SingleType {
+  collectionName: 'app_configs';
+  info: {
+    singularName: 'app-config';
+    pluralName: 'app-configs';
+    displayName: 'AppConfig';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    professional_name: Attribute.String & Attribute.Required;
+    professional_email: Attribute.Email & Attribute.Required;
+    professional_logo: Attribute.Media & Attribute.Required;
+    resume: Attribute.Media;
+    hero_headline: Attribute.String & Attribute.Required;
+    about_me_intro: Attribute.String & Attribute.Required;
+    about_me: Attribute.RichText & Attribute.Required;
+    hero_image: Attribute.Media;
+    personal_photo: Attribute.Media;
+    socials: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::app-config.app-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::app-config.app-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.CollectionType {
   collectionName: 'contacts';
   info: {
@@ -933,6 +973,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::app-config.app-config': ApiAppConfigAppConfig;
       'api::contact.contact': ApiContactContact;
       'api::experience.experience': ApiExperienceExperience;
       'api::project.project': ApiProjectProject;
