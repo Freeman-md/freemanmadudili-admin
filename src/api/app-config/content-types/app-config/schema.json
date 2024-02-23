@@ -40,10 +40,6 @@
       "type": "string",
       "required": true
     },
-    "about_me_intro": {
-      "type": "string",
-      "required": true
-    },
     "about_me": {
       "type": "richtext",
       "required": true
@@ -68,12 +64,31 @@
       "type": "json"
     },
     "hero_intro": {
-      "type": "richtext",
-      "required": true
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
     },
-    "contact_me_text": {
-      "type": "richtext",
-      "required": true
+    "contact_me_intro": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "about_me_intro": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
