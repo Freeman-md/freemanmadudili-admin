@@ -785,7 +785,6 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
     professional_logo: Attribute.Media & Attribute.Required;
     resume: Attribute.Media;
     hero_headline: Attribute.String & Attribute.Required;
-    about_me: Attribute.RichText & Attribute.Required;
     hero_image: Attribute.Media;
     personal_photo: Attribute.Media;
     socials: Attribute.JSON;
@@ -807,7 +806,7 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
           preset: 'rich';
         }
       >;
-    about_me_intro: Attribute.RichText &
+    about_me: Attribute.RichText &
       Attribute.Required &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -816,6 +815,8 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
           preset: 'rich';
         }
       >;
+    about_me_intro: Attribute.String & Attribute.Required;
+    nickname: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

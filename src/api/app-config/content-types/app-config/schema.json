@@ -40,10 +40,6 @@
       "type": "string",
       "required": true
     },
-    "about_me": {
-      "type": "richtext",
-      "required": true
-    },
     "hero_image": {
       "type": "media",
       "multiple": false,
@@ -81,7 +77,7 @@
       "required": true,
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "about_me_intro": {
+    "about_me": {
       "type": "customField",
       "options": {
         "output": "HTML",
@@ -89,6 +85,14 @@
       },
       "required": true,
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "about_me_intro": {
+      "type": "string",
+      "required": true
+    },
+    "nickname": {
+      "type": "string",
+      "required": true
     }
   }
 }
