@@ -40,6 +40,11 @@
     },
     "responsibilities_new": {
       "type": "richtext"
+    },
+    "tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tool.tool"
     }
   }
 }

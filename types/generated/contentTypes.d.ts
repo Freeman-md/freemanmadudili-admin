@@ -904,6 +904,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       'api::project.project'
     >;
     responsibilities_new: Attribute.RichText;
+    tools: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::tool.tool'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
