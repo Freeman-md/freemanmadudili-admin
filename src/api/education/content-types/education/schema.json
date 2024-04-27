@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "educations",
+  "info": {
+    "singularName": "education",
+    "pluralName": "educations",
+    "displayName": "Education",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "course_title": {
+      "type": "string",
+      "required": true
+    },
+    "grade": {
+      "type": "string",
+      "required": true
+    },
+    "institution": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "courses": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

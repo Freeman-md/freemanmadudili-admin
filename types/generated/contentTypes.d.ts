@@ -879,6 +879,50 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiEducationEducation extends Schema.CollectionType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'Education';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    course_title: Attribute.String & Attribute.Required;
+    grade: Attribute.String & Attribute.Required;
+    institution: Attribute.String & Attribute.Required;
+    start_date: Attribute.Date;
+    end_date: Attribute.Date;
+    courses: Attribute.String & Attribute.Required;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExperienceExperience extends Schema.CollectionType {
   collectionName: 'experiences';
   info: {
@@ -1007,6 +1051,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-config.app-config': ApiAppConfigAppConfig;
       'api::contact.contact': ApiContactContact;
+      'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
       'api::project.project': ApiProjectProject;
       'api::tool.tool': ApiToolTool;
