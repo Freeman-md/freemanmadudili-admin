@@ -40,6 +40,11 @@
     },
     "featured": {
       "type": "boolean"
+    },
+    "tools": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tool.tool"
     }
   }
 }

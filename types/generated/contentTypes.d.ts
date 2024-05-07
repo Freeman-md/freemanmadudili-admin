@@ -990,6 +990,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
     links: Attribute.JSON;
     technologies: Attribute.JSON;
     featured: Attribute.Boolean;
+    tools: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::tool.tool'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
