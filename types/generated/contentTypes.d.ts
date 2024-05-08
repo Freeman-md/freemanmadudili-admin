@@ -998,6 +998,43 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
   };
 }
 
+export interface ApiMetaDataMetaData extends Schema.SingleType {
+  collectionName: 'meta_datas';
+  info: {
+    singularName: 'meta-data';
+    pluralName: 'meta-datas';
+    displayName: 'MetaData';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    apple_touch_icon: Attribute.Media & Attribute.Required;
+    favicon_32x32: Attribute.Media;
+    favicon_16x16: Attribute.Media;
+    manifest_file: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::meta-data.meta-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::meta-data.meta-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -1116,6 +1153,7 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
+      'api::meta-data.meta-data': ApiMetaDataMetaData;
       'api::project.project': ApiProjectProject;
       'api::project-role.project-role': ApiProjectRoleProjectRole;
       'api::tool.tool': ApiToolTool;
