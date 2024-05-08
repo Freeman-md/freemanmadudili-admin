@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collaboration_areas",
+  "info": {
+    "singularName": "collaboration-area",
+    "pluralName": "collaboration-areas",
+    "displayName": "CollaborationArea"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

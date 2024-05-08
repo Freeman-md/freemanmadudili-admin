@@ -835,12 +835,44 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
   };
 }
 
+export interface ApiCollaborationAreaCollaborationArea
+  extends Schema.CollectionType {
+  collectionName: 'collaboration_areas';
+  info: {
+    singularName: 'collaboration-area';
+    pluralName: 'collaboration-areas';
+    displayName: 'CollaborationArea';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collaboration-area.collaboration-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collaboration-area.collaboration-area',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.CollectionType {
   collectionName: 'contacts';
   info: {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -850,17 +882,12 @@ export interface ApiContactContact extends Schema.CollectionType {
     email: Attribute.Email & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     interest: Attribute.String & Attribute.Required;
-    field_of_study: Attribute.String;
-    profile_url: Attribute.String;
-    portfolio_purpose: Attribute.Text;
-    portfolio_description: Attribute.Text;
-    personal_information: Attribute.Text;
     role: Attribute.String;
     role_description: Attribute.Text;
     budget: Attribute.String;
     collaboration: Attribute.String;
     collaboration_overview: Attribute.Text;
-    inquiry: Attribute.String;
+    inquiry: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1013,6 +1040,36 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiProjectRoleProjectRole extends Schema.CollectionType {
+  collectionName: 'project_roles';
+  info: {
+    singularName: 'project-role';
+    pluralName: 'project-roles';
+    displayName: 'ProjectRole';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-role.project-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-role.project-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiToolTool extends Schema.CollectionType {
   collectionName: 'tools';
   info: {
@@ -1055,10 +1112,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-config.app-config': ApiAppConfigAppConfig;
+      'api::collaboration-area.collaboration-area': ApiCollaborationAreaCollaborationArea;
       'api::contact.contact': ApiContactContact;
       'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
       'api::project.project': ApiProjectProject;
+      'api::project-role.project-role': ApiProjectRoleProjectRole;
       'api::tool.tool': ApiToolTool;
     }
   }
