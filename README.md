@@ -1,57 +1,99 @@
-# 🚀 Getting started with Strapi
+# Freeman Madudili Admin App
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Introduction
 
-### `develop`
+This is the admin application repository for managing content for Freeman Madudili's portfolio. It is built with Strapi.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Getting Started
 
-```
-npm run develop
-# or
-yarn develop
-```
+### Prerequisites
 
-### `start`
+- Node.js (v20 or higher)
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+- npm (v9 or higher)
 
-```
-npm run start
-# or
-yarn start
-```
+### Installation
 
-### `build`
+1\. **Clone the repository**
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+ ```bash
 
-```
-npm run build
-# or
-yarn build
-```
+ git clone https://github.com/Freeman-md/freemanmadudili-admin.git
 
-## ⚙️ Deployment
+ cd freemanmadudili-admin
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+ ```
 
-## 📚 Learn more
+2\. **Install dependencies**
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+ ```bash
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+ npm install
 
-## ✨ Community
+ ```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+3\. **Copy environment variables**
 
----
+ ```bash
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+ cp .env.example .env
+
+ ```
+
+4\. **Update environment variables**
+
+   - Open the `.env` file and set all necessary variables. Ensure they are updated with appropriate values. Most of them require random strings.
+
+5\. **Run the admin server**
+
+ ```bash
+
+ npm run develop
+
+ ```
+
+## Initial Setup and Permissions
+
+1\. **Create Admin Account**
+
+   - Navigate to the admin panel (typically running on `http://localhost:1337/admin`)
+
+   - Create an admin account
+
+2\. **Set Permissions**
+
+   - Go to **Settings** > **Users & Permissions Plugin** > **Roles**
+
+   - Select the **Public** role
+
+   - Enable the "Find" permission for `App-Config` and `MetaData`
+
+   - Similarly, enable "Find" and "FindOne" permissions for other resources without enabling create, delete, or update options
+
+## Deployment
+
+1\. **Build the admin panel**
+
+ ```bash
+
+ npm run build
+
+ ```
+
+2\. **Start the admin panel**
+
+ ```bash
+
+ npm run start
+
+ ```
+
+3\. **Deploy to a hosting service (e.g., Render)**
+
+   - Follow the hosting service's instructions to deploy your Strapi application.
+
+   - Make sure to set the environment variables in your hosting environment.
+
+## Contributing
+
+Contributions are welcomed!
