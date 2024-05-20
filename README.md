@@ -97,3 +97,5 @@ This is the admin application repository for managing content for Freeman Madudi
 ## Contributing
 
 Contributions are welcomed!
+
+Feel free to modify these templates to better suit your project's needs and add any additional information as necessary.
